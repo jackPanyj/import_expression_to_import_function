@@ -5,11 +5,17 @@ export function activate(context: vscode.ExtensionContext) {
 		const editor = vscode.window.activeTextEditor;
 		if (editor) {
 			const selection = editor.selection;
+			// 获取选中区域的开始行
 			const start = editor.document.lineAt(selection.start).range.start;
+			// 获取选中区域的结束后
 			const end = editor.document.lineAt(selection.end).range.end;
+			// 重新定义选中区域
 			const newSelection = new vscode.Selection(start, end);
+			// 得到选区的 range
 			const range = new vscode.Range(newSelection.start, newSelection.end);
+			// 获取选区的文本
 			const text = editor.document.getText(range);
+			// 文本处理
 			const texts: string[] = text.split('\n');
 			const newTexts = texts.map(text => {
 				const matched = text.match(/import\s+(\w+)\s+from\s+(['"][\.@].*['"]);?/);
@@ -21,7 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
 					return text;
 				}
 			});
-
+			// 文本替换
 			editor.edit(builder => builder.replace(range, newTexts.join('\n')));
 		}
 	});
