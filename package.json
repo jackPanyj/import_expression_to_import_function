@@ -2,7 +2,7 @@
 	"name": "import-expresstion-to-import-function",
 	"displayName": "import_to_import()",
 	"description": "",
-	"version": "0.0.3",
+	"version": "0.0.4`",
 	"keywords": ["import", "imports", "import()"],
 	"engines": {
 		"vscode": "^1.30.0"
