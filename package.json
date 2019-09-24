@@ -1,14 +1,19 @@
 {
-	"name": "import_expresstion_to_import_function",
+	"name": "import-expresstion-to-import-function",
 	"displayName": "import_to_import()",
 	"description": "",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.30.0"
 	},
+	"publisher": "jackpanyj",
 	"categories": [
 		"Other"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jackPanyj/import_expression_to_import_function.git"
+	},
 	"activationEvents": [
 		"onCommand:extension.import_to_import()"
 	],
