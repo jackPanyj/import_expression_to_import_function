@@ -9,3 +9,11 @@
 
     windows: ctrl + shift + p
 2. search `import to import()`
+
+
+## config
+open setting.json
+
+```json
+"import_to_import().showWebpackChunkName": true
+```

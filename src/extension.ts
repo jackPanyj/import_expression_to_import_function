@@ -2,6 +2,8 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('extension.import_to_import()', () => {
+		const config = vscode.workspace.getConfiguration('import_to_import()');
+		const showWebpackChunkName = config.get('showWebpackChunkName');
 		const editor = vscode.window.activeTextEditor;
 		if (editor) {
 			const selection = editor.selection;
@@ -21,7 +23,12 @@ export function activate(context: vscode.ExtensionContext) {
 				const matched = text.match(/import\s+(\w+)\s+from\s+(['"][\.@].*['"]);?/);
 				if (matched) {
 					const [_, name, path] = matched;
-					const str = `const ${name} = () => import(${path})`;
+					let str: string;
+					if (showWebpackChunkName) {
+						str = `const ${name} = () => import(/* webpackChunkName: "${name.toLowerCase()}" */${path});`;
+					} else {
+						str = `const ${name} = () => import(${path});`;
+					}
 					return str;
 				} else {
 					return text;

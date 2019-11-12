@@ -2,7 +2,7 @@
 	"name": "import-expresstion-to-import-function",
 	"displayName": "import_to_import()",
 	"description": "",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"keywords": ["import", "imports", "import()"],
 	"engines": {
 		"vscode": "^1.30.0"
@@ -25,7 +25,17 @@
 				"command": "extension.import_to_import()",
 				"title": "import to import()"
 			}
-		]
+		],
+		"configuration": {
+			"title": "whether or not show webpackChunkName",
+			"properties": {
+				"import_to_import().showWebpackChunkName": {
+					"type": "boolean",
+					"default": true,
+					"description": "whether or not show webpackChunkName"
+				}
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
