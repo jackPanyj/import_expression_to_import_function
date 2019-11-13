@@ -2,7 +2,7 @@
 	"name": "import-expresstion-to-import-function",
 	"displayName": "import_to_import()",
 	"description": "",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"keywords": ["import", "imports", "import()"],
 	"engines": {
 		"vscode": "^1.30.0"
@@ -31,7 +31,7 @@
 			"properties": {
 				"import_to_import().showWebpackChunkName": {
 					"type": "boolean",
-					"default": true,
+					"default": false,
 					"description": "whether or not show webpackChunkName"
 				}
 			}
